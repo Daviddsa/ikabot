@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+﻿#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import datetime
@@ -40,6 +40,7 @@ from ikabot.function.sendResources import sendResources
 from ikabot.function.shipMovements import shipMovements
 from ikabot.function.stationArmy import stationArmy
 from ikabot.function.testTelegramBot import testTelegramBot
+from ikabot.function.telegramAccountReport import telegramAccountReport
 from ikabot.function.trainArmy import trainArmy
 from ikabot.function.update import update
 from ikabot.function.vacationMode import vacationMode
@@ -151,6 +152,7 @@ def menu(session, checkUpdate=True):
         2104: decaptchaConf,
         2105: logs,
         2106: testTelegramBot,
+        2110: telegramAccountReport,
         2107: importExportCookie,
         2108: loadCustomModule,
         2109: developer,
@@ -281,8 +283,9 @@ def menu(session, checkUpdate=True):
         print("(7) Import / Export cookie")
         print("(8) Load custom ikabot module")
         print("(9) Developer Data")
+        print("(10) Telegram account snapshot")
 
-        selected = read(min=0, max=9, digit=True)
+        selected = read(min=0, max=10, digit=True)
         if selected == 0:
             menu(session)
             return
@@ -372,3 +375,5 @@ if __name__ == "__main__":
 try: import flask                                           #
 except: pass                                                #
 #############################################################
+
+
